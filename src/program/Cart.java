@@ -1,9 +1,14 @@
 package program;
 
 public class Cart {
-    int id;
+    private int id;
 
     public Cart (int x){
         id = x;
+    }
+
+    public int getId()
+    {
+       return id;
     }
 }

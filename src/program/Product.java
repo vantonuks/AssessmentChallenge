@@ -1,19 +1,29 @@
 package program;
 
 public class Product {
-    public String name;
-    public Cart cart;
+    private String name;
+    private Cart cart;
+    private int id;
 
-    public Product(String n) {
-        name = n;
+    public Product(int n, String s) {
+        name = s;
+        id = n;
     }
     /*
-    public void setProductName(String n) {
-        name = n;
+    public void setProductName(String s) {
+        name = s;
     }
     */
     public String getProductName() {
         return name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Cart getCart() {
+        return cart;
     }
 
     public void setCart(Cart x){

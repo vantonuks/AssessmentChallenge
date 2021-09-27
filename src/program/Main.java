@@ -27,44 +27,44 @@ public class Main {
     }
 
     //Database initialization.
-    public static void initializeDatabase(LinkedList<Product> db, LinkedList<Cart> db2){
-        Product prod = new Product("product0");
-        db.add(prod);
-        prod = new Product("product1");
-        db.add(prod);
-        prod = new Product("product2");
-        db.add(prod);
-        prod = new Product("product3");
-        db.add(prod);
-        prod = new Product("product4");
-        db.add(prod);
-        prod = new Product("product5");
-        db.add(prod);
-        prod = new Product("product6");
-        db.add(prod);
+    public static void initializeDatabase(LinkedList<Product> productList, LinkedList<Cart> cartList){
+        Product prod = new Product(1, "product1");
+        productList.add(prod);
+        prod = new Product(2, "product2");
+        productList.add(prod);
+        prod = new Product(3, "product3");
+        productList.add(prod);
+        prod = new Product(4, "product4");
+        productList.add(prod);
+        prod = new Product(5, "product5");
+        productList.add(prod);
+        prod = new Product(6,"product6");
+        productList.add(prod);
+        prod = new Product(7, "product7");
+        productList.add(prod);
 
         for (int i =1; i<=3; i++)
         {
             Cart ct = new Cart (i);
-            db2.add(ct);
+            cartList.add(ct);
         }
     }
 
     //get all products from database.
-    public static void getAllProducts(LinkedList<Product> db){
+    public static void getAllProducts(LinkedList<Product> productList){
         System.out.println("Printing all products in database");
-        for (int i=0; i<db.size(); i++) {
-            System.out.println(db.get(i).getProductName());
+        for (int i=0; i<productList.size(); i++) {
+            System.out.println(productList.get(i).getProductName());
         }
     }
 
     //get all products from database with certain cart id.
-    public static void getAllProductsCart(LinkedList<Product> db, int id){
+    public static void getAllProductsCart(LinkedList<Product> productList, int id){
         System.out.println("Getting all products belonging to cart with id" + id);
-        for (int i=0; i<db.size(); i++) {
-            Product temp = db.get(i);
-            if (temp.cart == null) continue;
-            if (temp.cart.getId() == id) {
+        for (int i=0; i<productList.size(); i++) {
+            Product temp = productList.get(i);
+            if (temp.getCart() == null) continue;
+            if (temp.getCart().getId() == id) {
                 System.out.println(temp.getProductName());
             }
         }
@@ -72,7 +72,7 @@ public class Main {
 
     //Add product to cart (Assign product to specific cart)
     public static void addProductToCart (Cart c, Product prod){
-        System.out.println("Adding product " + prod.name + " to cart " + c.getId());
+        System.out.println("Adding product " + prod.getProductName() + " to cart " + c.getId());
         prod.setCart(c);
     }
 }

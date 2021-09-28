@@ -1,32 +1,33 @@
 package program;
 
-public class Product {
+public class Product implements RecordInterface {
     private String name;
-    private Cart cart;
-    private int id;
+    private int cartFK;
+    private int pk;
 
     public Product(int n, String s) {
         name = s;
-        id = n;
+        pk = n;
+        cartFK = 0;
     }
     /*
     public void setProductName(String s) {
         name = s;
     }
     */
-    public String getProductName() {
+    public String getName() {
         return name;
     }
 
-    public int getId() {
-        return id;
+    public int getPK() {
+        return pk;
     }
 
-    public Cart getCart() {
-        return cart;
+    public int getCartID() {
+        return cartFK;
     }
 
-    public void setCart(Cart x){
-        cart = x;
+    public void setCart(int n){
+        cartFK = n;
     }
 }

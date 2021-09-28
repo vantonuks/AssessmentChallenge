@@ -1,14 +1,17 @@
 package program;
 
-public class Cart {
-    private int id;
+public class Cart implements RecordInterface {
+    private int pk;
+    private String name;
 
-    public Cart (int x){
-        id = x;
+    public Cart (int n, String s){
+        pk = n;
+        name = s;
     }
 
-    public int getId()
+    @Override
+    public int getPK()
     {
-       return id;
+       return pk;
     }
 }
